@@ -1,0 +1,100 @@
+html, body {
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    margin: 0;
+    background-color: rgb(58, 58, 58);
+    font-family: 'Comic Sans MS', 'Chalkboard SE', 'Comic Neue', sans-serif;
+}
+
+.main-container {
+    width: 1100px;
+    height: 100%;
+    margin: 0 auto;
+}
+
+.card {
+    margin-top: 5vh !important;
+    border: 1px solid gray;
+    border-radius: 25px;
+    max-width: 750px;
+    margin: 0 auto;
+    background-color:azure;
+    box-shadow: 5px 5px rgba(0, 0, 0, 0.2);;
+}
+
+.card-header {
+    border-radius: 24px;
+    padding-top: 2.5vh;
+    height: 12.5vh;
+    background: #2A7B9B;
+    background: linear-gradient(90deg,rgba(83, 224, 237, 1) 20%, rgba(42, 123, 155, 1) 100%);
+}
+
+h1 {
+    margin: 0;
+    color: white;
+    font-size: 76px;
+    text-align: center;
+}
+
+.card-body {
+    padding: 1vw;
+}
+
+.text-input {
+    border: 0;
+    border-radius: 5px;
+    background-color: lightgray;
+    color: black;
+    height: 2em;
+    font-size: 16px;
+}
+
+#name {
+    width: 15em;
+}
+
+#surname {
+    width: 25em;
+}
+
+#phone {
+    width: 13em;
+}
+
+#email {
+    width: 20em;
+}
+
+.text-input:focus-visible {
+    transition: all 0.2s;
+    background-color: white;
+}
+
+fieldset {
+    border: 1px solid gray;
+    padding: 0.5em;
+    border-radius: 15px;
+    margin-bottom: 1em;
+}
+
+select {
+    margin-bottom: 1em;
+}
+
+.submit-button {
+    margin-top: 2em;
+    background: linear-gradient(90deg,rgba(83, 224, 237, 1) 20%, rgba(42, 123, 155, 1) 100%);
+    color: white;
+    font-size: 24px;
+    font-weight: 500;
+    border: 0;
+    border-radius: 15px;
+    padding: 0.5em;
+}
+
+.submit-button:active {
+    transition: all 0.5s ease-in 0.3s;
+    background: linear-gradient(90deg, rgba(42, 123, 155, 1) 20%, rgba(83, 224, 237, 1) 100%);
+}
