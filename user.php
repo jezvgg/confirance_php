@@ -1,6 +1,7 @@
 <?php
 
 class User {
+    public $id;
     public $date;
     public $ip;
     public $name;
@@ -10,7 +11,7 @@ class User {
     public $theme;
     public $payment;
     public $sender;
-    public $disabled = 0;
+    public $disabled;
 
     const THEMES = ['buisness', 'technology', 'markating'];
     const PAYMENTS = ['web-money', 'yandex', 'paypal', 'card'];
@@ -25,10 +26,31 @@ class User {
         return true;
     }
 
-    public function __construct($name, $surname, $email, $phone, $theme, $payment, $sender) {
+    public static function fromRow($row) {
+        $raw_params = explode('|', $row);
+        $keys_params = array_keys(get_class_vars('User'));
+        $params = [];
+        for($i = 0; $i < count($raw_params); $i++) {
+            $params[$keys_params[$i]] = $raw_params[$i];
+        }
+        // echo var_dump($params);
+
+        if (!(count($params) > 0 and User::validateParams($params['name'], $params['surname'],
+                                         $params['email'], $params['phone'], $params['theme'],
+                                          $params['payment'], (bool)$params['sender']))) {
+            return false;
+        }
+        return new User($params['name'], $params['surname'],
+        $params['email'], $params['phone'], $params['theme'],
+         $params['payment'], (bool)$params['sender'], $params['id'], $params['disabled']);
+    }
+
+    public function __construct($name, $surname, $email, $phone, $theme, $payment, $sender, $id = 0, $disabled = 0) {
         if (!User::validateParams($name, $surname, $email, $phone, $theme, $payment, $sender)) {
             throw new ErrorException('Parameters of new User in incorrect!');
         }
+        $this->id = $id;
+        if ($id==0) {$this->id = uniqid();}
         $this->date = date('d.m.Y');
         $this->ip = $_SERVER['REMOTE_ADDR'];
         $this->name = $name;
@@ -38,16 +60,10 @@ class User {
         $this->theme = $theme;
         $this->payment = $payment;
         $this->sender = (int)$sender;
+        $this->disabled = $disabled;
     }
 
     public function makeRow() {
-        echo var_dump(get_object_vars($this));
         return implode('|', array_values(get_object_vars($this)));
     }
-
-    // public function fromRow($row) {
-    //     if (User::validateParams(explode('|', $row))) {
-
-    //     }
-    // }
 }
