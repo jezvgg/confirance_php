@@ -25,6 +25,6 @@
     </div>
 
   </div>
-    
+  <?php session_destroy(); ?>
   </body>
 </html>

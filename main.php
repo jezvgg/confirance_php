@@ -9,7 +9,7 @@ $_POST['phone'], $_POST['theme'], $_POST['payment'],
 (bool)$_POST['email-sender'])) {
     $user = new User($_POST['name'], $_POST['surname'], $_POST['email'], 
     $_POST['phone'], $_POST['theme'], $_POST['payment'], 
-    (bool)$_POST['email-sender']);
+    (bool)$_POST['email-sender'], session_id());
 
     $controller = new DatabaseController();
     echo (int)$controller->saveUser($user);
