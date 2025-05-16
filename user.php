@@ -45,13 +45,13 @@ class User {
          $params['payment'], (bool)$params['sender'], $params['id'], $params['disabled']);
     }
 
-    public function __construct($name, $surname, $email, $phone, $theme, $payment, $sender, $id = 0, $disabled = 0) {
+    public function __construct($name, $surname, $email, $phone, $theme, $payment, $sender, $id = 0, $disabled = 0, ...$other) {
         if (!User::validateParams($name, $surname, $email, $phone, $theme, $payment, $sender)) {
             throw new ErrorException('Parameters of new User in incorrect!');
         }
         $this->id = $id;
         if ($id==0) {$this->id = uniqid();}
-        $this->date = date('d.m.Y');
+        $this->date = date('Y-m-d');
         $this->ip = $_SERVER['REMOTE_ADDR'];
         $this->name = $name;
         $this->surname = $surname;

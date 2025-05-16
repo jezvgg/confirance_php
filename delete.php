@@ -6,6 +6,6 @@ $controller = new DatabaseController();
 
 $controller->disableUsers($_POST['selected_files']);
 
-echo var_dump($_POST['selected_files']);
+header("Location: admin.php");
 
 ?>
