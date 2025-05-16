@@ -1,6 +1,13 @@
 
 <?php require_once 'user.php';?>
 <?php require_once 'database_controller.php';?>
+<?php
+session_start();
+if (!(isset($_SESSION['logged']) and $_SESSION['logged'] == true) or 
+    (isset($_SESSION['time']) and time() - $_SESSION['time'] > 60*5)) {
+    header('Location: login.php');
+}
+?>
 <!doctype html>
 <html lang="en">
   <head>
@@ -48,6 +55,9 @@
                         </table>
                     </div>
                     <input type="submit" class="submit-button" value="Удалить">
+                </form>
+                <form action="unlogin.php" method="POST">
+                    <input type="submit" class="submit-button" value="Разлогиниться">
                 </form>
             </div>
             

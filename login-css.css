@@ -17,7 +17,7 @@ html, body {
     margin-top: 5vh !important;
     border: 1px solid gray;
     border-radius: 25px;
-    max-width: 1100px;
+    max-width: 29em;
     margin: 0 auto;
     background-color:azure;
     box-shadow: 5px 5px rgba(0, 0, 0, 0.2);;
@@ -25,8 +25,8 @@ html, body {
 
 .card-header {
     border-radius: 24px;
-    padding-top: 2.5vh;
-    height: 12.5vh;
+    padding-top: 1vh;
+    height: 8vh;
     background: #2A7B9B;
     background: linear-gradient(90deg,rgba(83, 224, 237, 1) 20%, rgba(42, 123, 155, 1) 100%);
 }
@@ -34,12 +34,38 @@ html, body {
 h1 {
     margin: 0;
     color: white;
-    font-size: 76px;
+    font-size: 48px;
     text-align: center;
 }
 
 .card-body {
     padding: 1vw;
+}
+
+.text-input {
+    border: 0;
+    border-radius: 5px;
+    background-color: lightgray;
+    color: black;
+    height: 2em;
+    font-size: 16px;
+    width: 25em;
+}
+
+.text-input:focus-visible {
+    transition: all 0.2s;
+    background-color: white;
+}
+
+fieldset {
+    border: 1px solid gray;
+    padding: 0.5em;
+    border-radius: 15px;
+    margin-bottom: 1em;
+}
+
+select {
+    margin-bottom: 1em;
 }
 
 .submit-button {
@@ -56,36 +82,4 @@ h1 {
 .submit-button:active {
     transition: all 0.5s ease-in 0.3s;
     background: linear-gradient(90deg, rgba(42, 123, 155, 1) 20%, rgba(83, 224, 237, 1) 100%);
-}
-
-.table-container {
-    width: fit-content;
-    margin: 0 auto;
-}
-
-td, th, table {
-    border: 1px solid gray;
-    border-collapse: collapse;
-}
-
-td, th {
-    padding: 0.2em;
-    text-align: center;
-}
-
-td:hover, th:hover {
-    border: 1px solid black;
-}
-
-.background-table-color1 {
-    background-color: rgb(133, 197, 223);
-}
-
-.background-table-color2 {
-    background-color: rgb(185, 235, 255);
-}
-
-.buttons-container {
-    display: flex;
-    flex-direction: row;
 }
